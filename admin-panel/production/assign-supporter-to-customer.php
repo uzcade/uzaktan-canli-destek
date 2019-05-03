@@ -1,4 +1,5 @@
 <?php include 'header.php'; 
+
   $supporter_id = $_GET['id'];
   $supporter_sql = mysqli_query($connection, "SELECT name, surname FROM supporters WHERE id = '$supporter_id'");
   $supporter_data = mysqli_fetch_array($supporter_sql);
