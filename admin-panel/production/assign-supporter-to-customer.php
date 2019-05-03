@@ -1,4 +1,9 @@
 <?php include 'header.php'; 
+
+  $supporter_id = $_GET['id'];
+  $supporter_sql = mysqli_query($connection, "SELECT name, surname FROM supporters WHERE id = '$supporter_id'");
+  $supporter_data = mysqli_fetch_array($supporter_sql);
+
   $customers_sql = mysqli_query( $connection, "SELECT id, name, surname, email FROM customers");
 ?>
 <!-- page content -->
@@ -20,6 +25,7 @@
               <div class="col-md-6">
                 <div class="row">
                   <div class="form-group col-md-12">
+                  <p><b><?=$supporter_data['name']." ".$supporter_data['surname']?></b> isimli bakımcıya atama yapıyorsunuz:</p>
                     <label for="inputState">Tüm Müşteriler</label>
                     <select id="customer_id" name="customer_list" class="form-control">
                       <?php while ($customers_data = mysqli_fetch_array($customers_sql)) { ?>
