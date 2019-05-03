@@ -1,6 +1,7 @@
 <?php include 'header.php'; 
 
-$all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers");
+$supporter_id = $_SESSION['supporter_id'];
+$all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers WHERE supporter_id = '$supporter_id' ");
 
 ?>
 
