@@ -176,8 +176,8 @@
                       url: ajax_url,
                       success: function(response){
 
-                          $("#register_btn").text("Kaydet");
-                          $("#register_btn").prop("disabled", false);
+                          $("#add_supporter").text("Kaydet");
+                          $("#add_supporter").prop("disabled", false);
 
                           if(response == "true"){
                               swal("Başarılı", "Kullanıcı kaydedildi!", "success");
