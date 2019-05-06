@@ -11,12 +11,14 @@
 
 		$temp_password  =   rand(100000, 999999);
 
-		$licence_key_control_sql = mysqli_query( $connection, "SELECT * FROM licence_keys WHERE licence_key = '$licence_key'");
-
+		$licence_key_control_sql = mysqli_query( $connection, "SELECT * FROM licence_keys WHERE licence_key = '$licence_key' AND state = 0");
+		
 		if (mysqli_num_rows($licence_key_control_sql) > 0) {
 
+			$licence_key_control_data = mysqli_fetch_array($licence_key_control_sql);
+			$licence_id = $licence_key_control_data['id'];
+
 			$register_sql	=	mysqli_query( $connection, "SELECT email FROM customers WHERE email = '$email'");
-			
 			$register_data  = mysqli_fetch_array($register_sql);
 
 			if (mysqli_num_rows($register_sql) > 0) {
@@ -31,7 +33,7 @@
 						password,
 						email, 
 						telephone,
-						licence_key
+						licence_id
 					) 
 						VALUES
 					(
@@ -40,11 +42,13 @@
 						'".md5($temp_password)."',
 						'$email',
 						'$telephone',
-						'$licence_key'
+						'$licence_id'
 					)");
 
 				if ($add_customer_sql) {
 
+					$licence_update = mysqli_query($connection,"UPDATE licence_keys SET state = 1 WHERE id = '$licence_id'");
+					
 					//die(base_url('send/mail?name='.$name.'&surname='.$surname.'&password='.$temp_password.'&email='.$email));
 					include(dirname(dirname(__FILE__)) . "/mail_sender.php");
 					die("ok");

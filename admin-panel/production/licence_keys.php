@@ -55,7 +55,7 @@ $all_licence_keys_sql = mysqli_query( $connection, "SELECT * FROM licence_keys O
                       <td><?=$all_licence_keys_data['id']?></td>
                       <td><?=$all_licence_keys_data['licence_key']?></td>
                       <td>
-                        <?php if ($all_licence_keys_data['customer_id'] == 0) { ?>
+                        <?php if ($all_licence_keys_data['state'] == 0) { ?>
                           <span>Boş</span>
                         <?php } else { ?>
                           <span>Dolu</span>
