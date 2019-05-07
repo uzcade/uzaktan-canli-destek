@@ -2,7 +2,7 @@
 
 	$servername = "localhost";
 	$username = "root";
-	$password = "34ebr4411";
+	$password = "";
 	$database = "canli_destek";
 
 	$connection = new mysqli($servername, $username, $password, $database);

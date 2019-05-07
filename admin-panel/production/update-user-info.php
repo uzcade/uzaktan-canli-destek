@@ -50,11 +50,6 @@
                         <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
                       </div>
                        <input type="hidden" class="form-control" id="user_id" name="user_id" value="<?=$all_supporter_data['id']?>">
-
-                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                          <label class="col-md-12">Lisans Anahtarı</label>
-                          <input type="text" class="form-control" name="licence_key" readonly="readonly" value="<?=$all_supporter_data['licence_key']?>">
-                      </div>
                       
                       <div class="form-group">
                         <button id="user-info-update-btn" class="btn btn-success pull-right" name="user-info-update-btn">Güncelle</button>
