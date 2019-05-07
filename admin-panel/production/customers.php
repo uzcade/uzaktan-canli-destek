@@ -26,7 +26,6 @@ $all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers");
                     <th>İsim Soyisim</th>
                     <th>Mail</th>
                     <th>Telefon</th>
-                    <th>Lisans Anahtarı</th>
                     <th></th>
                     <?php if(isset($_SESSION['supporter_session_control']) != true) { ?>
                       <th></th>
@@ -41,7 +40,6 @@ $all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers");
                       <td><?=$all_customer_data['name']." ".$all_customer_data['surname']?></td>
                       <td><?=$all_customer_data['email']?></td>
                       <td><?=$all_customer_data['telephone']?></td>
-                      <td><?=$all_customer_data['licence_key']?></td>
                       <td><center><a href="<?=base_url('panel/supporter/edit/customer?id='.$all_customer_data['id'])?>" class="btn btn-primary btn-xs">Düzenle</a></center></td>
                       <?php if(isset($_SESSION['supporter_session_control']) != true) { ?>
                         <td><center><button class="btn btn-danger btn-xs" onclick="removeCustomer(<?=$all_customer_data['id']?>)">Sil</button></center></td>
