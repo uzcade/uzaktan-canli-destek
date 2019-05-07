@@ -66,6 +66,28 @@
           });
         }
 
+        function removeSupporter(supporter_id){
+          
+          var data = {
+              type : "removeSupporter",
+              supporter_id : supporter_id
+          };
+
+          jQuery.ajax({
+              type: "POST",
+              data: data,
+              url: ajax_url,
+              success: function(response){
+                  
+                  if(response == "true"){
+                      swal("Başarılı", "Bakım ekibi üyesi silindi!", "success");
+                  }else {
+                      swal("Hata", "Bakım ekibi üyesi silinirken hata oluştu!", "error");
+                  }
+              }
+          });
+        }
+
         $(function(){
             $("#company_info_update_btn").click(function(){
 

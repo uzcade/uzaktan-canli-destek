@@ -58,7 +58,7 @@ $all_supporter_sql = mysqli_query( $connection, "SELECT * FROM supporters");
                   <td><?=$all_supporter_data['name']." ".$all_supporter_data['surname']?></td>
                   <td><?=$all_supporter_data['email']?></td>
                   <td><center><a class="btn btn-warning btn-xs" href="<?=base_url('panel/admin/assign?id='.$all_supporter_data['id'])?>">Atama Yap</a></center></td>
-                  <td><center><a href="<?=base_url('admin/islem?supid='.$all_supporter_data['id'])?>" class="btn btn-danger btn-xs">Sil</a></center></td>
+                  <td><center><button onclick="removeSupporter(<?=$all_supporter_data['id']?>)" class="btn btn-danger btn-xs">Sil</button></center></td>
                 </tr>
             <?php } ?>
           </tbody>

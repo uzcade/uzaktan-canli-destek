@@ -74,7 +74,23 @@
 		}
 	}
 
-	/*if ($_GET['type'] == 'completed_btn') {
+	if ($_POST['type'] == 'removeSupporter') {
+
+		$id = $_POST['supporter_id'];
+
+		$delete_user_sql = "DELETE FROM supporters
+							WHERE id = '$id'";
+
+		$delete_user_request = mysqli_query($connection, $delete_user_sql);
+		
+		if ($delete_user_request) {
+			die('true');	//Bakımcı silindi.
+	} else {
+			die('false');	//Bakımcı silinemedi.
+}
+	}
+
+		/*if ($_GET['type'] == 'completed_btn') {
 
 		$request_id	= $_GET['compid'];
 		
@@ -104,16 +120,6 @@
 			}
 		}
 	}*/
-
-	if (isset($_GET['supid'])) {
-
-		$delete_user_sql = "DELETE FROM supporters
-							WHERE id = '".$_GET['supid']."'";
-
-		$delete_user_request = mysqli_query($connection, $delete_user_sql);
-		
-		header("Location:".base_url('panel/admin/support-team?state=true'));
-	}
 
 	if ($_POST['type'] == 'assign_supporter') {
 
