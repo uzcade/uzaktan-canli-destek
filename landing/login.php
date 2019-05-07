@@ -98,7 +98,7 @@
                         <!-- Widget Title -->
                         <h4 class="widget-title">Hakkımızda</h4>
                         <p>Misyonumuz? Müşteri ilişkilerinizi en iyi hale getirmeniz için size yardımcı olmaktan gurur duyan
-                        çok çalışkan ve azimli, çok uluslu bir takımız!</p>
+                        çok çalışkan ve azimli bir takımız!</p>
 
                         <!-- Copywrite Text -->
                         <div class="copywrite-text mb-30">

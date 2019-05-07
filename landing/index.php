@@ -20,13 +20,13 @@
                                 <div class="welcome-text">
                                     <h2 data-animation="fadeInUp" data-delay="100ms">Uzaktan canlı <br><span>destek</span></h2>
                                     <h5 data-animation="fadeInUp" data-delay="400ms">İhtiyaç duyduğunuz her an bir tık kadar uzağınızda !</h5>
-                                    <a href="./register.html" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Keşfetmeye Başla</a>
+                                    <a href="<?=BASE_URL?>/register" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Keşfetmeye Başla</a>
                                 </div>
                             </div>
                             <!-- Welcome Thumbnail -->
                             <div class="col-12 col-md-6">
                                 <div class="welcome-thumbnail">
-                                    <img src="./img/bg-img/1.png" alt="" data-animation="slideInRight" data-delay="400ms">
+                                    <img src="<?=BASE_URL?>/landing/img/bg-img/1.png" alt="" data-animation="slideInRight" data-delay="400ms">
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
             <div class="single-welcome-slide">
                 <!-- Background Curve -->
                 <div class="background-curve">
-                    <img src="./img/core-img/curve-1.png" alt="">
+                    <img src="<?=BASE_URL?>/landing/img/core-img/curve-1.png" alt="">
                 </div>
 
                 <!-- Welcome Content -->
@@ -50,13 +50,13 @@
                                 <div class="welcome-text">
                                     <h2 data-animation="fadeInUp" data-delay="100ms">Uzaktan canlı <br><span>destek</span></h2>
                                     <h5 data-animation="fadeInUp" data-delay="400ms">Müşterilerinizle canlı iletişim kurun, satışlarınızı arttırın.</h5>
-                                    <a href="./register.html" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Keşfetmeye Başla</a>
+                                    <a href="<?=BASE_URL?>/register" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Keşfetmeye Başla</a>
                                 </div>
                             </div>
                             <!-- Welcome Thumbnail -->
                             <div class="col-12 col-md-6">
                                 <div class="welcome-thumbnail">
-                                    <img src="./img/bg-img/2.png" alt="" data-animation="slideInRight" data-delay="400ms">
+                                    <img src="<?=BASE_URL?>/landing/img/bg-img/2.png" alt="" data-animation="slideInRight" data-delay="400ms">
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                 <!-- About Thumbnail -->
                 <div class="col-12 col-md-6">
                     <div class="about-us-thumbnail mb-80">
-                        <img src="./img/bg-img/2.jpg" alt="">
+                        <img src="<?=BASE_URL?>/landing/img/bg-img/2.jpg" alt="">
                         <!-- Video Area -->
                         <div class="uza-video-area hi-icon-effect-8">
                             <a href="https://www.youtube.com/watch?v=sSakBz_eYzQ" class="hi-icon video-play-btn"><i class="fa fa-play" aria-hidden="true"></i></a>
@@ -88,7 +88,7 @@
                         <h2>Size yardımcı olmak için buradayız</h2>
                         <p>Uzaktan Canlı Destek, problemle karşılaşan son kullanıcıya hızlı ve etkin bir çözüm sunmanın en kolay yoludur.</p>
                         <p>Hiç bir eklenti ya da kurulum gerektirmeyen destek sistemimiz sayesinde hızlı; mesajlaşma,sesli konuşma ve ekran paylaşımı imkanlarımızla doğru bir iletişim kurmak için kayıt olun !</p>
-                        <a href="./register.html" class="btn uza-btn btn-2 mt-4">Keşfetmeye Başla</a>
+                        <a href="<?=BASE_URL?>/register" class="btn uza-btn btn-2 mt-4">Keşfetmeye Başla</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
 
         <!-- About Background Pattern -->
         <div class="about-bg-pattern">
-            <img src="./img/core-img/curve-2.png" alt="">
+            <img src="<?=BASE_URL?>/landing/img/core-img/curve-2.png" alt="">
         </div>
     </section>
     <!-- ***** About Us Area End ***** -->
@@ -160,7 +160,7 @@
     <section class="uza-blog-area">
         <!-- Background Curve -->
         <div class="blog-bg-curve">
-            <img src="./img/core-img/curve-4.png" alt="">
+            <img src="<?=BASE_URL?>/landing/img/core-img/curve-4.png" alt="">
         </div>
 
         <!-- CTA Area Start -->

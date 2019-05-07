@@ -47,7 +47,7 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul id="nav">
-                                <li class="current-item"><a href="">Anasayfa</a></li>
+                                <li class="current-item"><a href="<?=BASE_URL?>">Anasayfa</a></li>
                                 <li><a href="#featuresSection" target="_self">Özellikler</a></li>
                                 <li><a href="#contactSection">İletişim</a></li>
                             </ul>

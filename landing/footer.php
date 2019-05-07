@@ -12,7 +12,7 @@
                         <!-- Footer Content -->
                         <div class="footer-content mb-15">
                             <h3>(+90) 216 5555</h3>
-                            <p>Ziya Pasa Caddesi 12/37 Karakoy, Istanbul <br> uzaktancanlidestek@gmail.com</p>
+                            <p>Ziya Pasa Caddesi 12/37 Karakoy, Istanbul <br> ucanlidestek@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         <!-- Widget Title -->
                         <h4 class="widget-title">Hakkımızda</h4>
                         <p>Misyonumuz? Müşteri ilişkilerinizi en iyi hale getirmeniz için size yardımcı olmaktan gurur duyan
-                        çok çalışkan ve azimli, çok uluslu bir takımız!</p>
+                        çok çalışkan ve azimli bir takımız!</p>
 
                         <!-- Copywrite Text -->
                         <div class="copywrite-text mb-30">
