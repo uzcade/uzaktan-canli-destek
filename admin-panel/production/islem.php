@@ -1,11 +1,11 @@
 <?php
 	require $config['init'];
 
-	if (isset($_POST['send'])) {
+	if ($_POST['type'] == 'request_create_btn') {
 		
 		$request_title		=	trim($_POST['request_title']);
 		$request_content 	=	trim($_POST['request_content']);
-		$fullname			=	$_SESSION['customer_name'];
+		$fullname				=	$_SESSION['customer_name'];
 		$customer_id		= 	$_SESSION['customer_id'];
 
 		$add_request_sql = "INSERT INTO requests
@@ -26,9 +26,9 @@
 		$add_request	=	mysqli_query($connection, $add_request_sql);
 
 		if ($add_request) {
-			header("refresh:0.02; url=".base_url('panel/customer/requests?state=true'));
+			die('true');
 		}else {
-			header("refresh:0.02; url=".base_url('panel/customer/requests?state=false'));
+			die('false');
 		}
 	}
 

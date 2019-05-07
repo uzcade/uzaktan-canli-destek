@@ -8,37 +8,19 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <?php 
-
-              if (isset($_GET['state']) && $_GET['state'] == "true" ) { ?>
-                <div class="alert alert-success" role="alert" alert-dismissible>
-                  Talebiniz başarıyla gönderildi!
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>      
-              <?php } else if (isset($_GET['state']) == "false") { ?>
-                <div class="alert alert-danger" role="alert" alert-dismissible>
-                  Hay aksi! Talebiniz gönderilemedi!
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div> 
-              <?php } ?>
-
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                
                 <div class="x_content">
                   <div id="alerts"></div>
                   
-                  <form method="POST" action="<?=base_url('admin/islem')?>" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                  <div id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
       
                     <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Talep Başlığı<span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="first-name" name="request_title" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="request_title" class="form-control col-md-7 col-xs-12">
                       </div>
                     </div> 
       
@@ -46,17 +28,17 @@
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Talep İçeriği<span class="required">*</span>
                       </label>
                       <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea id="first-name" name="request_content" required="required" rows="10" class="form-control col-md-7 col-xs-12"></textarea>
+                        <textarea id="request_content" rows="10" class="form-control col-md-7 col-xs-12"></textarea>
                       </div>
                     </div>
       
                     <div class="ln_solid"></div>
                     <div class="form-group">
                       <div align="right" class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                        <button type="submit" name="send" class="btn btn-success">Gönder</button>
+                        <button id="request_create_btn" class="btn btn-success">Talep Oluştur</button>
                       </div>
                     </div>
-                  </form>
+                  </div>
               </div>
             </div>
 
@@ -106,9 +88,45 @@
 
     <!-- Custom Theme Scripts -->
     <script src="<?=BASE_URL?>/admin-panel/build/js/custom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
     <!-- bootstrap-daterangepicker -->
     <script>
+    var ajax_url = '<?php echo base_url("admin/islem"); ?>';
+    $(function(){
+          $("#request_create_btn").click(function(){
+              
+            $("#request_create_btn").text("Talep Oluşturuluyor");
+            $("#request_create_btn").prop("disabled", true);
+
+            var data = {
+                type : "request_create_btn",
+                request_title : $("#request_title").val(),
+                request_content : $("#request_content").val()
+            };
+
+            if (data['request_title'] && data['request_content']) {
+              jQuery.ajax({
+                  type: "POST",
+                  data: data,
+                  url: ajax_url,
+                  success: function(response){
+
+                      $("#request_create_btn").text("Talep Oluştur");
+                      $("#request_create_btn").prop("disabled", false);
+
+                      if(response == "true"){
+                          swal("Başarılı", "Talep oluşturuldu!", "success");
+                      }else {
+                          swal("Hata", "Talep oluşturulamadı!", "error");
+                      }
+                  }
+              });
+            } else {
+              swal("Hata", "Tüm bilgileri doldurunuz!", "error");
+            }
+        });
+      });
       $(document).ready(function() {
         $('#birthday').daterangepicker({
           singleDatePicker: true,
