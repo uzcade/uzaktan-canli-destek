@@ -28,7 +28,9 @@ $all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers");
                     <th>Telefon</th>
                     <th>Lisans Anahtarı</th>
                     <th></th>
-                    <th></th>
+                    <?php if(isset($_SESSION['supporter_session_control']) != true) { ?>
+                      <th></th>
+                    <?php  } ?>
                   </tr>
                 </thead>
     
@@ -41,7 +43,9 @@ $all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers");
                       <td><?=$all_customer_data['telephone']?></td>
                       <td><?=$all_customer_data['licence_key']?></td>
                       <td><center><a href="<?=base_url('panel/supporter/edit/customer?id='.$all_customer_data['id'])?>" class="btn btn-primary btn-xs">Düzenle</a></center></td>
-                      <td><center><button class="btn btn-danger btn-xs" onclick="removeCustomer(<?=$all_customer_data['id']?>)">Sil</button></center></td>
+                      <?php if(isset($_SESSION['supporter_session_control']) != true) { ?>
+                        <td><center><button class="btn btn-danger btn-xs" onclick="removeCustomer(<?=$all_customer_data['id']?>)">Sil</button></center></td>
+                      <?php  } ?>
                     </tr>
                 <?php } ?>
               </tbody>
