@@ -1,8 +1,11 @@
-<?php include 'header.php'; 
+<?php include 'header.php';
 
-$supporter_id = $_SESSION['supporter_id'];
-$all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers WHERE supporter_id = '$supporter_id' ");
-
+if(isset($_SESSION['admin_session_control'])) {
+  $all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers");
+} else {
+  $supporter_id = $_SESSION['supporter_id'];
+  @$all_customers_sql = mysqli_query( $connection, "SELECT * FROM customers WHERE supporter_id = '$supporter_id' ");
+}
 ?>
 
 <!-- page content -->

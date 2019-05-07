@@ -121,23 +121,21 @@
 		}
 	}*/
 
-	if ($_POST['type'] == 'assign_supporter') {
+		if ($_POST['type'] == 'assign_supporter') {
 
-		$customer_id	=	$_POST['customer_list'];
-		$supporter_id	=	$_POST['supporter_id'];
-		
-		$assing_supporter_sql = "UPDATE customers 
-								SET supporter_id = '$supporter_id' 
-								WHERE id = '$customer_id'";
-        	
-        $assing_supporter_request = mysqli_query($connection, $assing_supporter_sql);
+			$customer_id	=	$_POST['customer_id'];
+			$supporter_id	=	$_POST['supporter_id'];
+			
+			$assing_supporter_sql = "UPDATE customers SET supporter_id = '$supporter_id' WHERE id = '$customer_id'";
+						
+				$assing_supporter_request = mysqli_query($connection, $assing_supporter_sql);
 
-        if ($assing_supporter_request) {
-        	die('true');
-        } else {
-        	die('false');
+				if ($assing_supporter_request) {
+					die('true');
+				} else {
+					die('false');
+			}
 		}
-    }
 
     if ($_POST['type'] == 'company_info_update_btn') {
 

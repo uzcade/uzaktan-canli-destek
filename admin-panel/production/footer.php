@@ -118,7 +118,6 @@
                 } else {
                     swal("Hata", "Lütfen tüm alanları doldurunuz!", "error");
                 }
-
             });
         });
 
@@ -136,7 +135,7 @@
                     data: data,
                     url: ajax_url,
                     success: function(response){
-
+                        
                         if(response == "true"){
                             swal("Başarılı", "Müşteri Ataması Başarılı", "success");
                         }else {
