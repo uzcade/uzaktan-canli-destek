@@ -58,9 +58,9 @@
               success: function(response){
                   
                   if(response == "true"){
-                      swal("Başarılı", "Firma bilgileriniz güncelndi!", "success");
+                      swal("Başarılı", "Kullanıcı silindi !", "success");
                   }else {
-                      swal("Hata", "Firma bilgileriniz güncellenirken hata oluştu!", "error");
+                      swal("Hata", "Kullanıcı silinirken hata oluştu!", "error");
                   }
               }
           });

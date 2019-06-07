@@ -52,12 +52,15 @@
 	  'panel/supporter/all/customers' => 'admin-panel/production/customers.php',
 	  'panel/supporter/requests' => 'admin-panel/production/requests.php',
 	  'panel/supporter/chat' => 'admin-panel/production/chat.php',
-  	  'panel/supporter/edit/customer' => 'admin-panel/production/update-user-info.php',
-  	  'panel/supporter/request/detail' => 'admin-panel/production/request_detail.php',
+	  'panel/supporter/edit/customer' => 'admin-panel/production/update-user-info.php',
+	  'panel/supporter/request/detail' => 'admin-panel/production/request_detail.php',
+	  'panel/supporter/room' => 'admin-panel/production/messages.php',
   	  
 	  'panel/customer' => 'admin-panel/production/supporter.php',
 	  'panel/customer/chat' => 'admin-panel/production/chat.php',
 	  'panel/customer/requests' => 'admin-panel/production/create_request.php',
+	  'panel/customer/all/requests' => 'admin-panel/production/my_requests.php',
+	  'panel/customer/room' => 'admin-panel/production/messages.php',
 	  'logout' => 'logout.php'
 	];
 

@@ -1,7 +1,19 @@
 <?php include 'header.php'; 
-
-$all_requests_sql = mysqli_query($connection, "SELECT * FROM requests ORDER BY id DESC");
-
+if(isset($_SESSION['supporter_id'])){
+  $all_requests_sql = mysqli_query($connection, "SELECT 
+                    requests.id as requests_id, 
+                    requests.request_title as requests_title,
+                    requests.request_content as requests_content,
+                    requests.request_date as requests_date,
+                    requests.customer_fullname as requests_customer_fullname,
+                    requests.state as requests_state,
+                    requests.customer_id as requests_customer_id
+                    FROM requests 
+                    INNER JOIN 
+                    customers ON 
+                    requests.customer_id=customers.id 
+                    WHERE customers.supporter_id='".$_SESSION['supporter_id']."'");
+}
 ?>
   <!-- page content -->
 <div class="right_col" role="main">
@@ -34,12 +46,12 @@ $all_requests_sql = mysqli_query($connection, "SELECT * FROM requests ORDER BY i
           <tbody>               
             <?php while ($all_requests_data = mysqli_fetch_array($all_requests_sql)) { ?>
                 <tr>
-                  <td><?=$all_requests_data['id']?></td>
-                  <td><?=$all_requests_data['customer_fullname']?></td>
-                  <td><?=$all_requests_data['request_title']?></td>
-                  <td><?=$all_requests_data['request_date'] ?></td>
-                  <td><?=$all_requests_data['state'] ?></td>
-                  <td><center><a href="<?=base_url('panel/supporter/request/detail?id='.$all_requests_data['id'])?>" class="btn btn-primary btn-xs">Detayları Gör</td>
+                  <td><?=$all_requests_data['requests_id']?></td>
+                  <td><?=$all_requests_data['requests_customer_fullname']?></td>
+                  <td><?=$all_requests_data['requests_title']?></td>
+                  <td><?=$all_requests_data['requests_date'] ?></td>
+                  <td><?=$all_requests_data['requests_state'] ?></td>
+                  <td><center><a href="<?=base_url('panel/supporter/request/detail?id='.$all_requests_data['requests_id'])?>" class="btn btn-primary btn-xs">Detayları Gör</center></td>
                 </tr>
             <?php } ?>
           </tbody>

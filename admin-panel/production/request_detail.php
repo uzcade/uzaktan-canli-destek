@@ -1,13 +1,28 @@
 <?php include 'header.php'; 
 
 if (isset($_GET['id'])) {
-  
+
   $request_id = $_GET['id'];
-  $all_requests_sql = mysqli_query( $connection, "SELECT * FROM requests WHERE id = '$request_id'");
+  $all_requests_sql = mysqli_query( $connection, "SELECT * FROM requests WHERE id = '".$_GET['id']."'");  
   $all_requests_data = mysqli_fetch_array($all_requests_sql);
 
 }
 ?>
+
+<script>
+  function isTrue() {
+    <?php
+      if(isset($_SESSION['supporter_id'])) {
+        $update_requests_sql = mysqli_query( $connection, "UPDATE requests SET supporter_state=1 WHERE id = '".$_GET['id']."'");  
+        $update_requests_data = mysqli_fetch_array($update_requests_sql);
+      } else if(isset($_SESSION['customer_id'])) {
+        $update_requests_sql = mysqli_query( $connection, "UPDATE requests SET customer_state=1 WHERE id = '".$_GET['id']."'");  
+        $update_requests_data = mysqli_fetch_array($update_requests_sql);
+      }
+      
+    ?>
+  }
+</script>
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -33,10 +48,16 @@ if (isset($_GET['id'])) {
                       <blockquote>
                         <p><?=$all_requests_data['request_content']?></p>
                       </blockquote>
-                      <?php if ($all_requests_data['state'] == "Tamamlanmadı") { ?>
-                        <button id="completed_btn" class="btn btn-primary btn-md col-xs-2 pull-right">Tamamla</button>
-                      <?php } ?>
-                      <a href="<?=base_url('panel/supporter/chat')?>" class="btn btn-success btn-md col-xs-2 pull-right">İletişime Geç</a>
+                      <?php 
+                        if(isset($_SESSION['supporter_id'])) {
+                          if ($all_requests_data['supporter_state'] == 0) { ?>
+                            <a href="<?=base_url('panel/supporter/room?rid='.$request_id)?>" onclick="isTrue()" class="btn btn-success btn-md col-xs-2 pull-right">Görüşmeyi Başlat</a>
+                         <?php } }
+                         
+                        if(isset($_SESSION['customer_id'])) {
+                          if ($all_requests_data['customer_state'] == 0) { ?>
+                            <a href="<?=base_url('panel/supporter/room?rid='.$request_id)?>" onclick="isTrue()" class="btn btn-success btn-md col-xs-2 pull-right">Görüşmeyi Başlat</a>
+                        <?php } } ?>
                     </div>
                   </div>
                 </div>

@@ -4,7 +4,7 @@
   $supporter_sql = mysqli_query($connection, "SELECT name, surname FROM supporters WHERE id = '$supporter_id'");
   $supporter_data = mysqli_fetch_array($supporter_sql);
 
-  $customers_sql = mysqli_query( $connection, "SELECT id, name, surname, email FROM customers");
+  $customers_sql = mysqli_query( $connection, "SELECT id, name, surname, email FROM customers WHERE supporter_id = 0");
 ?>
 <!-- page content -->
 <div class="right_col" role="main">

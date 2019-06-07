@@ -1,4 +1,7 @@
-<?php require $config['init']; ?>
+<?php require $config['init']; 
+$company_sql = mysqli_query($connection, "SELECT product_name FROM company");
+$company_data = mysqli_fetch_array($company_sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +13,7 @@
 
     <link rel="icon" href="<?=BASE_URL?>/landing/img/core-img/favicon.ico">
 
-    <title>Firma Yönetim Panel</title>
+    <title>Uzaktan Canlı Destek</title>
 
     <!-- Bootstrap -->
     <link href="<?=BASE_URL?>/admin-panel/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +41,7 @@
           <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
               <div class="navbar nav_title" style="border: 0;">
-                <a href="" class="site_title"><i class="fa fa-home"></i> <span>Yönetim Paneli</span></a>
+                <a href="" class="site_title"><i class="fa fa-home"></i> <span>Panel</span></a>
               </div>
   
               <div class="clearfix"></div>
@@ -50,7 +53,7 @@
                 </div>
                 <div class="profile_info">
                   <span>Hoşgeldiniz,</span>
-                  <h2>Optus Loop Live</h2>
+                  <h2><?=$company_data['product_name']?></h2>
                 </div>
               </div>
               <!-- /menu profile quick info -->
@@ -66,10 +69,9 @@
                     <li><a href="<?=base_url('panel/supporter')?>"><i class="fa fa-home"></i> Anasayfa</a></li>
                     <li><a href="<?=base_url('panel/supporter/requests')?>"><i class="fa fa-home"></i> Açılan Talepler</a></li>
                     <li><a href="<?=base_url('panel/supporter/all/customers')?>"><i class="fa fa-user"></i> Müşteriler</a></li>
-                    <li><a href="<?=base_url('panel/supporter/chat')?>"><i class="fa fa-send"></i> Mesajlaşma</a></li>
                   <?php } elseif (isset($_SESSION['customer_session_control']) == TRUE) {  ?>
                     <li><a href="<?=base_url('panel/customer')?>"><i class="fa fa-home"></i> Anasayfa</a></li>
-                    <li><a href="<?=base_url('panel/customer/chat')?>"><i class="fa fa-send"></i> Mesajlaşma</a></li>
+                    <li><a href="<?=base_url('panel/customer/all/requests')?>"><i class="fa fa-eye"></i> Taleplerim</a></li>
                     <li><a href="<?=base_url('panel/customer/requests')?>"><i class="fa fa-eye"></i> Talep Oluştur</a></li>
                   <?php } else { ?>
                     <li><a href="<?=base_url('panel/admin')?>"><i class="fa fa-home"></i> Anasayfa</a></li>
