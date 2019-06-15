@@ -44,11 +44,18 @@ $(document).ready(function(){
         'livestreaming', 'etherpad', 'sharedvideo', 'settings', 'raisehand',
         'videoquality', 'filmstrip', 'invite', 'stats', 'shortcuts',
         'tileview'
-        ]},
-        
-        interfaceConfigOverwrite : { SETTINGS_SECTIONS: [ 'devices', 'language' ]},
-        interfaceConfigOverwrite : { DEFAULT_LOCAL_DISPLAY_NAME: 'Ben' },
-        interfaceConfigOverwrite : { SHOW_JITSI_WATERMARK: false }
+        ],
+		SETTINGS_SECTIONS: [ 'devices', 'language' ],
+		DEFAULT_LOCAL_DISPLAY_NAME: 'Ben',
+		SHOW_JITSI_WATERMARK: false,
+		SHOW_WATERMARK_FOR_GUESTS: false,APP_NAME: 'Uzaktan Canlı Destek',
+    	NATIVE_APP_NAME: 'Uzaktan Canlı Destek',
+    	PROVIDER_NAME: 'HEG',
+		TOOLBAR_BUTTONS: [
+        'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
+        'fodeviceselection', 'hangup', 'profile', 'chat'
+    	]
+		}
 	}
 	
 	var api = new JitsiMeetExternalAPI(domain, options);
